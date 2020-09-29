@@ -3,8 +3,10 @@
 <html>
 <head>
   <title>Gendac API Assesment</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" />
-<!--  <link href="../cdn/styles/style.css" rel="stylesheet" />-->
+  <link href="../cdn/styles/style.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -14,19 +16,9 @@
     <form>
       <input id="product-name" name="Name" type="text" placeholder="Name" required>
       <input id="product-category" name="Category" type="text" placeholder="Category" required>
-      <input id="product-Id" name="Id" type="text" placeholder="Id" required>
       <input id="product-price" name="Price" type="text" placeholder="Price" required>
     </form>
       <button type="submit" id="create-product-btn" > Create Product </button>
-  </div>
-  <div id="edit-product">
-    <form action="https://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/" method="put" target="./">
-      <input id="new-product-name" name="Name" type="text" placeholder="Name" required>
-      <input id="new-product-category" name="Category" type="text" placeholder="Category" required>
-      <input id="new-product-Id" name="Id" type="text" placeholder="Id" required>
-      <input id="new-product-price" name="Price" type="text" placeholder="Price" required>
-      <button type="submit" id="edit-product-btn" > Update Product </button>
-    </form>
   </div>
 
   <button type="" id="delete-product-btn" > Delete Product </button>
@@ -42,6 +34,55 @@
 
       </ol>
   </div>
+
+  <div class="heading">
+    <div class="panel-title text-center">
+      <h1 class="title"> Product List</h1>
+      <hr />
+    </div>
+  </div>
+  <table class="table table-hover" id="content-table">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">Price</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody id="tableBody">
+<!--    <tr>-->
+<!--      <th scope="row"> Electricity </th>-->
+<!--      <td> R500 </td>-->
+<!--      <td>Otto</td>-->
+<!--      <td> R90  </td>-->
+<!--      <td>-->
+<!--        <button class="btn"> Update </button>-->
+<!--        <button class="btn"> Delete </button>-->
+<!--      </td>-->
+<!--    <tr>-->
+<!--      <th scope="row"> Groceries </th>-->
+<!--      <td> R600  </td>-->
+<!--      <td> Bob </td>-->
+<!--      <td> R56 </td>-->
+<!--      <td>-->
+<!--        <button class="btn"> Update </button>-->
+<!--        <button class="btn"> Delete </button>-->
+<!--      </td>-->
+<!--    <tr>-->
+<!--      <th scope="row"> Groceries </th>-->
+<!--      <td> R600  </td>-->
+<!--      <td> Bob </td>-->
+<!--      <td> R56 </td>-->
+<!--      <td>-->
+<!--        <button class="btn"> Update </button>-->
+<!--        <button class="btn"> Delete </button>-->
+<!--      </td>-->
+<!--    </tr>-->
+    </tbody>
+  </table>
+
 
   <script src="../cdn/scripts/scripts.js"></script>
 

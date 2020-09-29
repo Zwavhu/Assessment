@@ -1,17 +1,24 @@
 'use strict'
 
 const PRODUCT_API_LINK = 'http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/'
+const PRODUCT_API_LINK2 = 'http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI'
+//TODO: Remember to remove results
+
 
 const displayButton = document.getElementById('display-list-btn')
 const createButton = document.getElementById('create-product-btn')
 const deleteButton = document.getElementById('delete-product-btn')
 
 const read = async () => {
-    const response = await fetch(PRODUCT_API_LINK)
+    //TODO: Remember to remove paging
+    const response = await fetch(PRODUCT_API_LINK2 + "?page=1&pageSize=10")
     const data = await response.json() //extract JSON from the http response
 
+    const productRows = document.getElementById('tableBody')
+    productRows.innerHTML = ''
     // Obtain all Json objects
-    data.forEach((product) => {
+    //TODO: Remember to remove results
+    data.Results.forEach((product) => {
         // Product attributes
         var productCategory = product.Category
         var productID = product.Id
@@ -19,44 +26,75 @@ const read = async () => {
         var productPrice = product.Price
         // console.log(productName)
 
-        var node = document.createElement("LI");
-        var textnode = document.createTextNode('Name: '+productName + ', Categ: '+productCategory
-        +' Id: '+productID+' Price: '+ productPrice);
-        node.appendChild(textnode);
-        document.getElementById("product-list").appendChild(node);
+        const tr = document.createElement('tr')
+        const th = document.createElement('th')
+        th.scope = 'row'
+        const Id = document.createTextNode(productID)
+        th.appendChild(Id)
+        tr.appendChild(th)
+
+        // Appending Name
+        const td3 = document.createElement('td')
+        const name = document.createTextNode(productName)
+        td3.appendChild(name)
+        tr.appendChild(td3)
+
+        // Appending amount paid
+        const td1 = document.createElement('td')
+        const category = document.createTextNode(productCategory)
+        td1.appendChild(category)
+        tr.appendChild(td1)
+
+        // Appending product category
+        const td2 = document.createElement('td')
+        const price = document.createTextNode('R' + `${productPrice}`)
+        td2.appendChild(price)
+        tr.appendChild(td2)
+
+
+        const form = document.createElement('form')
+
+        // creating button for the form
+        const td4 = document.createElement('td')
+        const button = document.createElement('button')
+        button.class = 'btn'
+        button.type = 'submit'
+        const bText = document.createTextNode('Update')
+        button.appendChild(bText)
+        form.appendChild(button)
+
+        // creating button for the form
+        const td5 = document.createElement('td')
+        const button2 = document.createElement('button')
+        button2.class = 'btn'
+        // button2.type = 'submit'
+        const bText2 = document.createTextNode('Delete')
+        button2.appendChild(bText2)
+        button2.onclick = function (){
+            alert('Hi'+productID)
+            deleteProduct(productID)
+        }
+        form.appendChild(button2)
+
+        // Append form
+        td5.appendChild(form)
+        td4.appendChild(td5)
+        tr.appendChild(td4)
+        // Append to debtRows
+        productRows.appendChild(tr)
+
+        //-----------------------------
+
+        // var node = document.createElement("LI");
+        // var textnode = document.createTextNode('Name: '+productName + ', Categ: '+productCategory
+        // +' Id: '+productID+' Price: '+ productPrice);
+        // node.appendChild(textnode);
+        // document.getElementById("product-list").appendChild(node);
 
     })
-
 }
 
-// const createProduct = async () => {
-//
-//      try{
-//          let response = await fetch(PRODUCT_API_LINK, {
-//              method: 'POST',
-//              headers: {
-//                  'Content-Type': 'application/json'
-//              },
-//              body: {
-//                  Id: 10004,
-//                  Name: 'ProductXYZ',
-//                  Category: 'CategoryA',
-//                  Price: 200.0 ,
-//              }
-//          });
-//          return await response.json();
-//
-//      }catch (err){
-//          console.log(err)
-//      }
-//
-//     // do something with myJson
-// }
-
-
-const createProduct = function (){
-
-    const Id =  document.getElementById('product-Id').value
+const create = async () => {
     const name =  document.getElementById('product-name').value
     const category =  document.getElementById('product-category').value
     const price =  document.getElementById('product-price').value
@@ -68,7 +106,6 @@ const createProduct = function (){
 
         // Adding body or contents to send
         body: JSON.stringify({
-            Id: Id,
             Name: name,
             Category: category,
             Price: price
@@ -79,15 +116,23 @@ const createProduct = function (){
             "Content-type": "application/json; charset=UTF-8"
         }
     })
+        alert('Product Successfully Created ')
         // Displaying results to console
         .then(json => console.log(json));
 }
 
-
+const deleteProduct = function (id) {
+    fetch( PRODUCT_API_LINK + id, {
+        method: 'DELETE'
+    })
+    .then(res => res.text())
+    .then(res => console.log(res))
+    alert('In Delete')
+}
 
 
 displayButton.addEventListener('click', read)
-createButton.addEventListener('click', createProduct)
+createButton.addEventListener('click', create)
 deleteButton.addEventListener('click', deleteProduct)
 
 
