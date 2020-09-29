@@ -56,12 +56,13 @@ const read = async () => {
 
         // creating button for the form
         const td4 = document.createElement('td')
-        const button = document.createElement('button')
-        button.class = 'btn'
-        button.type = 'submit'
-        const bText = document.createTextNode('Update')
-        button.appendChild(bText)
-        form.appendChild(button)
+        // const button = document.createElement('button')
+        // button.class = 'btn'
+        const link = document.createElement('a')
+        const bText = document.createTextNode('read')
+        link.appendChild(bText)
+        link.href="/read/"+productID
+        form.appendChild(link)
 
         // creating button for the form
         const td5 = document.createElement('td')
@@ -71,13 +72,23 @@ const read = async () => {
         const bText2 = document.createTextNode('Delete')
         button2.appendChild(bText2)
         button2.onclick = function (){
-            alert('Hi'+productID)
             deleteProduct(productID)
         }
         form.appendChild(button2)
 
+        // creating button for the form
+        const td6 = document.createElement('td')
+        // const button = document.createElement('button')
+        // button.class = 'btn'
+        const editLink = document.createElement('a')
+        const bText4 = document.createTextNode('Edit')
+        editLink.appendChild(bText4)
+        editLink.href="/edit/"+productID
+        form.appendChild(editLink)
+
         // Append form
-        td5.appendChild(form)
+        td6.appendChild(form)
+        td5.appendChild(td6)
         td4.appendChild(td5)
         tr.appendChild(td4)
         // Append to debtRows
@@ -129,7 +140,6 @@ const deleteProduct = function (id) {
     .then(res => console.log(res))
     alert('In Delete')
 }
-
 
 displayButton.addEventListener('click', read)
 createButton.addEventListener('click', create)

@@ -8,5 +8,13 @@ mainRouter.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'indexx.html'))
 })
 
+mainRouter.get('/read/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views', 'readProduct.html'))
+})
+
+mainRouter.get('/edit/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views', 'edit.html'))
+})
+
 
 module.exports = mainRouter
