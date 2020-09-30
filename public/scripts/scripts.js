@@ -21,7 +21,6 @@ const readAll = async () => {
         var productID = product.Id
         var productName = product.Name
         var productPrice = product.Price
-        // console.log(productName)
 
         const tr = document.createElement('tr')
         const th = document.createElement('th')
@@ -30,31 +29,28 @@ const readAll = async () => {
         th.appendChild(Id)
         tr.appendChild(th)
 
-        // Appending Name
+        // Appending Product Name
         const td3 = document.createElement('td')
         const name = document.createTextNode(productName)
         td3.appendChild(name)
         tr.appendChild(td3)
 
-        // Appending amount paid
+        // Appending product category
         const td1 = document.createElement('td')
         const category = document.createTextNode(productCategory)
         td1.appendChild(category)
         tr.appendChild(td1)
 
-        // Appending product category
+        // Appending product price
         const td2 = document.createElement('td')
         const price = document.createTextNode('R' + `${productPrice}`)
         td2.appendChild(price)
         tr.appendChild(td2)
 
-
         const form = document.createElement('form')
 
         // creating button for the form
         const td4 = document.createElement('td')
-        // const button = document.createElement('button')
-        // button.class = 'btn'
         const link = document.createElement('a')
         const bText = document.createTextNode('read')
         link.appendChild(bText)
