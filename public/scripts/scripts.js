@@ -1,7 +1,6 @@
 'use strict'
 
 const PRODUCT_API_LINK = 'http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/'
-//TODO: Remember to remove results
 
 const deleteButton = document.getElementById('delete-product-btn')
 
