@@ -1,0 +1,27 @@
+{
+  "name": "gendacassessment",
+  "version": "1.0.0",
+  "description": "*Setting up and running the application*\r > Install node [here](https://nodejs.org/en/download/)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zwavhu/GendacAssessment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zwavhu/GendacAssessment/issues"
+  },
+  "homepage": "https://github.com/Zwavhu/GendacAssessment#readme"
+}
