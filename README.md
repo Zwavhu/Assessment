@@ -20,8 +20,9 @@ next steps in order to install these dependencies and successfully run the appli
 
 > To start the application, run this command `node app.js`
 
-> This will then show you a port this application is running on(usually 3000). Go to your browser and type `localhost:3000`
-> or `localhost:<port>` and enter a port that the app is running on
+> This will then show you a port this application is running on port 3000.
+
+> Go to your browser and type `localhost:3000`. The app will now appear on the browser
 
 > Ensure that you are connected to the internet since this application uses a Web API 
 
