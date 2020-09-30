@@ -1,5 +1,5 @@
 'use strict'
-const PRODUCT_API_LINK = 'http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/'
+const PRODUCT_API_LINK = 'https://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/'
 const createButton = document.getElementById('create-product-btn')
 
 const create = async () => {

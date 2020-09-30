@@ -1,11 +1,10 @@
 'use strict'
 
-const PRODUCT_API_LINK = 'http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/'
+const PRODUCT_API_LINK = 'https://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/'
 
 const deleteButton = document.getElementById('delete-product-btn')
 
 const readAll = async () => {
-    //TODO: Remember to remove paging
     const response = await fetch(PRODUCT_API_LINK)
     const data = await response.json() //extract JSON from the http response
 

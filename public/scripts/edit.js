@@ -1,6 +1,6 @@
 'use strict'
 
-const PRODUCT_API_LINK = 'http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI'
+const PRODUCT_API_LINK = 'https://gendacproficiencytest.azurewebsites.net/API/ProductsAPI'
 
 const displayProduct = async function  (){
     const getId = window.location.href.split("/")
