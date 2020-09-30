@@ -6,19 +6,18 @@ const create = async () => {
     const name =  document.getElementById('product-name').value
     const category =  document.getElementById('product-category').value
     const price =  document.getElementById('product-price').value
+
     // POST request using fetch()
     fetch(PRODUCT_API_LINK, {
 
         // Adding method type
         method: "POST",
-
-        // Adding body or contents to send
+        // Adding contents to send
         body: JSON.stringify({
             Name: name,
             Category: category,
             Price: price
         }),
-
         // Adding headers to the request
         headers: {
             "Content-type": "application/json; charset=UTF-8"

@@ -8,6 +8,7 @@ const bodyParser = require('body-parser')
 
 // Loading routes
 const mainRouter = require('./routes/mainRoutes.js')
+const appConstants = require('./appConstants')
 
 // Configuring body-parser
 app.use(bodyParser.json())
@@ -19,6 +20,5 @@ app.use('/', mainRouter)
 // serving static files
 app.use('/cdn', express.static('public'))
 
-const port = process.env.PORT || 3000
-app.listen(port)
-console.log('Express server is running on port', port)
+app.listen(appConstants.APP_PORT)
+console.log(`Express server running on port ${appConstants.APP_PORT}`)

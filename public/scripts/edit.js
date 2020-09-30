@@ -1,9 +1,9 @@
 'use strict'
+
 const PRODUCT_API_LINK = 'http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI'
 
-const editProduct = async function  (){
+const displayProduct = async function  (){
     const getId = window.location.href.split("/")
-    //TODO: Remember to remove paging
     const response = await fetch(PRODUCT_API_LINK + "/" + getId[getId.length-1])
     const data = await response.json() //extract JSON from the http response
 
@@ -15,7 +15,7 @@ const editProduct = async function  (){
 
 const update = function () {
     const getId = window.location.href.split("/")
-    const id =  getId[getId.length-1]
+    const id =  getId[getId.length-1] // gets the exact product Id
     const name =  document.getElementById('product-name').value
     const category =  document.getElementById('product-category').value
     const price =  document.getElementById('product-price').value
@@ -37,4 +37,4 @@ const update = function () {
 }
 
 
-window.onload = editProduct
+window.onload = displayProduct

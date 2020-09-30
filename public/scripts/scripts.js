@@ -1,21 +1,19 @@
 'use strict'
 
 const PRODUCT_API_LINK = 'http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/'
-const PRODUCT_API_LINK2 = 'http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI'
 //TODO: Remember to remove results
 
 const deleteButton = document.getElementById('delete-product-btn')
 
 const readAll = async () => {
     //TODO: Remember to remove paging
-    const response = await fetch(PRODUCT_API_LINK2 + "?page=1&pageSize=10")
+    const response = await fetch(PRODUCT_API_LINK)
     const data = await response.json() //extract JSON from the http response
 
     const productRows = document.getElementById('tableBody')
     productRows.innerHTML = ''
     // Obtain all Json objects
-    //TODO: Remember to remove results
-    data.Results.forEach((product) => {
+    data.forEach((product) => {
         // Product attributes
         var productCategory = product.Category
         var productID = product.Id
@@ -49,19 +47,18 @@ const readAll = async () => {
 
         const form = document.createElement('form')
 
-        // creating button for the form
+        // creating link for reading
         const td4 = document.createElement('td')
         const link = document.createElement('a')
-        const bText = document.createTextNode('read')
+        const bText = document.createTextNode('Read')
         link.appendChild(bText)
         link.href="/read/"+productID
         form.appendChild(link)
 
-        // creating button for the form
+        // creating button for deleting products
         const td5 = document.createElement('td')
         const button2 = document.createElement('button')
         button2.class = 'btn'
-        // button2.type = 'submit'
         const bText2 = document.createTextNode('Delete')
         button2.appendChild(bText2)
         button2.onclick = function (){
@@ -69,7 +66,7 @@ const readAll = async () => {
         }
         form.appendChild(button2)
 
-        // creating button for the form
+        // creating link for editing
         const td6 = document.createElement('td')
         // const button = document.createElement('button')
         // button.class = 'btn'
@@ -101,6 +98,3 @@ const deleteProduct = function (id) {
 
 window.onload = readAll
 deleteButton.addEventListener('click', deleteProduct)
-
-
-// window.onload =  displayProductList()
