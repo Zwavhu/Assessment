@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Editing</title>
+    <title>Update</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="../cdn/styles/style.css" rel="stylesheet" />
+
 </head>
 <body>
 
-
 <div class="heading">
     <div class="panel-title text-center">
-        <h1 class="title"> Update Product </h1>
+        <h1 class="title"> Read Specific Product </h1>
         <a href="/"> <button type="button">Go back to list</button>   </a>
         <hr />
     </div>
@@ -25,20 +25,21 @@
         </div>
         <div class="form-group">
             <label for="product-name" class="col-sm-2 col-form-label"> Name: </label>
-            <input id="product-name" name="Name" type="text" placeholder="Name" required>
+            <input id="product-name" name="Name" type="text" placeholder="Name" readonly>
         </div>
         <div class="form-group">
             <label for="product-category" class="col-sm-2 col-form-label"> Category: </label>
-            <input id="product-category" name="Category" type="text" placeholder="Category" required>
+            <input id="product-category" name="Category" type="text" placeholder="Category" readonly>
         </div>
         <div class="form-group">
             <label for="product-price" class="col-sm-2 col-form-label"> Price: </label>
-            <input id="product-price" name="Price" type="text" placeholder="Price" required>
+            <input id="product-price" name="Price" type="text" placeholder="Price" readonly>
         </div>
+
     </form>
-        <button type="submit" id="create-product-btn" onclick="update()"> Save </button>
 </div>
 
-    <script src="../cdn/scripts/edit.js"></script>
+    <script src="../cdn/scripts/read.js"></script>
+
 </body>
 </html>

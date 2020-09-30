@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Editing</title>
+    <title>create</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="../cdn/styles/style.css" rel="stylesheet" />
@@ -12,17 +12,13 @@
 
 <div class="heading">
     <div class="panel-title text-center">
-        <h1 class="title"> Update Product </h1>
+        <h1 class="title"> Create New Product </h1>
         <a href="/"> <button type="button">Go back to list</button>   </a>
         <hr />
     </div>
 </div>
-<div id="read-product" class="bs-example">
+<div id="create-product" class="bs-example">
     <form>
-        <div class="form-group">
-            <label for="product-Id" class="col-sm-2 col-form-label"> Id: </label>
-            <input id="product-Id" name="Id" type="text" placeholder="Id" readonly>
-        </div>
         <div class="form-group">
             <label for="product-name" class="col-sm-2 col-form-label"> Name: </label>
             <input id="product-name" name="Name" type="text" placeholder="Name" required>
@@ -35,10 +31,22 @@
             <label for="product-price" class="col-sm-2 col-form-label"> Price: </label>
             <input id="product-price" name="Price" type="text" placeholder="Price" required>
         </div>
+        <button type="submit" id="create-product-btn"> Create Product </button>
+
     </form>
-        <button type="submit" id="create-product-btn" onclick="update()"> Save </button>
 </div>
 
-    <script src="../cdn/scripts/edit.js"></script>
+<!--<div id="create-product">-->
+<!--    <form>-->
+<!--        <input id="product-name" name="Name" type="text" placeholder="Name" required>-->
+<!--        <input id="product-category" name="Category" type="text" placeholder="Category" required>-->
+<!--        <input id="product-price" name="Price" type="text" placeholder="Price" required>-->
+<!--    </form>-->
+<!--    <button type="submit" id="create-product-btn"> Create Product </button>-->
+<!--</div>-->
+
+<script src="../cdn/scripts/create.js"></script>
+
+
 </body>
 </html>

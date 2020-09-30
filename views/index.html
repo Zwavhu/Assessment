@@ -11,34 +11,11 @@
 </head>
 <body>
 
-  <div id="root"></div>
-
-  <div id="add-product">
-    <form>
-      <input id="product-name" name="Name" type="text" placeholder="Name" required>
-      <input id="product-category" name="Category" type="text" placeholder="Category" required>
-      <input id="product-price" name="Price" type="text" placeholder="Price" required>
-    </form>
-      <button type="submit" id="create-product-btn" > Create Product </button>
-  </div>
-
-  <button type="" id="delete-product-btn" > Delete Product </button>
-
-
-  <div id="title">
-    <h1> Product List </h1>
-  </div>
-
-  <button id="display-list-btn" > Display Product List </button>
-  <div id="product-list-container">
-      <ol id="product-list">
-
-      </ol>
-  </div>
 
   <div class="heading">
     <div class="panel-title text-center">
       <h1 class="title"> Product List</h1>
+      <a href="/create"> <button type="button">Create Product</button>   </a>
       <hr />
     </div>
   </div>
@@ -55,19 +32,6 @@
     <tbody id="tableBody">
     </tbody>
   </table>
-
-  <!-- Trigger/Open The Modal -->
-  <button id="myBtn">Open Modal</button>
-
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
-    </div>
-  </div>
 
   <script src="../cdn/scripts/scripts.js"></script>
 

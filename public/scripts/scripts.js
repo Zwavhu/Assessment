@@ -4,12 +4,9 @@ const PRODUCT_API_LINK = 'http://gendacproficiencytest.azurewebsites.net/API/Pro
 const PRODUCT_API_LINK2 = 'http://gendacproficiencytest.azurewebsites.net/API/ProductsAPI'
 //TODO: Remember to remove results
 
-
-const displayButton = document.getElementById('display-list-btn')
-const createButton = document.getElementById('create-product-btn')
 const deleteButton = document.getElementById('delete-product-btn')
 
-const read = async () => {
+const readAll = async () => {
     //TODO: Remember to remove paging
     const response = await fetch(PRODUCT_API_LINK2 + "?page=1&pageSize=10")
     const data = await response.json() //extract JSON from the http response
@@ -94,42 +91,7 @@ const read = async () => {
         // Append to debtRows
         productRows.appendChild(tr)
 
-        //-----------------------------
-
-        // var node = document.createElement("LI");
-        // var textnode = document.createTextNode('Name: '+productName + ', Categ: '+productCategory
-        // +' Id: '+productID+' Price: '+ productPrice);
-        // node.appendChild(textnode);
-        // document.getElementById("product-list").appendChild(node);
-
     })
-}
-
-const create = async () => {
-    const name =  document.getElementById('product-name').value
-    const category =  document.getElementById('product-category').value
-    const price =  document.getElementById('product-price').value
-    // POST request using fetch()
-    fetch(PRODUCT_API_LINK, {
-
-        // Adding method type
-        method: "POST",
-
-        // Adding body or contents to send
-        body: JSON.stringify({
-            Name: name,
-            Category: category,
-            Price: price
-        }),
-
-        // Adding headers to the request
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-        alert('Product Successfully Created ')
-        // Displaying results to console
-        .then(json => console.log(json));
 }
 
 const deleteProduct = function (id) {
@@ -138,11 +100,10 @@ const deleteProduct = function (id) {
     })
     .then(res => res.text())
     .then(res => console.log(res))
-    alert('In Delete')
+    confirm("Are you sure you want to delete?")
 }
 
-displayButton.addEventListener('click', read)
-createButton.addEventListener('click', create)
+window.onload = readAll
 deleteButton.addEventListener('click', deleteProduct)
 
 
